@@ -21,7 +21,7 @@ var system_event		= require(path.join(__dirname, './event_module/events_module.j
 
 var dbdir				= path.join(__dirname, "/database");
 
-app.set('port', process.env.PORT || 8000);
+app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
 app.engine('ejs', engine);
 app.set('view engine', 'ejs');
@@ -76,7 +76,7 @@ io.sockets.on( 'connection', function(socket){
 module.exports.io = io;
 
 
-server.listen(8000, function(){ 
+server.listen(3000, function(){ 
 	console.log('server port: ' + app.get('port'));
 });
 
