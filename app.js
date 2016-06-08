@@ -21,7 +21,7 @@ var system_event		= require(path.join(__dirname, './event_module/events_module.j
 
 var dbdir				= path.join(__dirname, "/database");
 
-app.set('port', process.env.PORT || 5000);
+app.set('port', process.env.PORT || 8000);
 app.set('views', __dirname + '/views');
 app.engine('ejs', engine);
 app.set('view engine', 'ejs');
@@ -48,8 +48,8 @@ app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 
-app.get('/', authentication.isLogin, routes.app);
-app.get('/index', authentication.isLogin, routes.app);
+app.get('/', authentication.isLogin, routes.index);
+app.get('/index', authentication.isLogin, routes.index);
 app.get('/login', authentication.isLogout, routes.login);
 
 app.post('/login_user', authentication.isLogout, user.login_user);
