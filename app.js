@@ -9,8 +9,6 @@ var engine 				= require('ejs-locals');
 var http 					= require('http');
 var path 					= require('path');
 var socketio 			= require("socket.io");
-var fs 					= require("fs");
-var util 					= require('util');
 var cookieParser		= require('cookie-parser');
 var cookie				= require('cookie');
 //login session
@@ -21,7 +19,7 @@ var system_event		= require(path.join(__dirname, './event_module/events_module.j
 
 var dbdir				= path.join(__dirname, "/database");
 
-app.set('port', process.env.PORT || 5000);
+app.set('port', process.env.PORT || 8000);
 app.set('views', __dirname + '/views');
 app.engine('ejs', engine);
 app.set('view engine', 'ejs');
@@ -76,7 +74,7 @@ io.sockets.on( 'connection', function(socket){
 module.exports.io = io;
 
 
-server.listen(5000, function(){ 
+server.listen(8000, function(){ 
 	console.log('server port: ' + app.get('port'));
 });
 
